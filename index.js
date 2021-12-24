@@ -37,7 +37,7 @@ async function run() {
 // Call run function and console error messages.
 run().catch(console.dir);
 app.get('/', (req, res){
-    res.send("Hello blackcoper")
+    res.send("Hello blackcoper tester")
 })
 
 app.listen(port, () => {
