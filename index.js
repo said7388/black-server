@@ -24,6 +24,7 @@ async function run() {
         const database = client.db("blackcoper");
         const recordData = database.collection("rcorddata");
         const rowName = database.collection("row_name");
+        const region = database.collection("region");
 
         app.get("/data", async (req, res) => {
             const result = await recordData.find({}).toArray();
@@ -31,6 +32,10 @@ async function run() {
         })
         app.get("/row", async (req, res) => {
             const result = await rowName.find({}).toArray();
+            res.json(result);
+        })
+        app.get("/region", async (req, res) => {
+            const result = await region.find({}).toArray();
             res.json(result);
         })
 
