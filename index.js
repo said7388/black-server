@@ -23,9 +23,14 @@ async function run() {
         console.log("connect success")
         const database = client.db("blackcoper");
         const recordData = database.collection("rcorddata");
+        const rowName = database.collection("row_name");
 
         app.get("/data", async (req, res) => {
             const result = await recordData.find({}).toArray();
+            res.json(result);
+        })
+        app.get("/row", async (req, res) => {
+            const result = await rowName.find({}).toArray();
             res.json(result);
         })
 
